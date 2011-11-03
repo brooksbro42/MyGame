@@ -2,8 +2,7 @@ import java.applet.*;
 import java.awt.*;
 import java.io.IOException;
 public class GameThread extends Applet implements Runnable {
-  
-	private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 1L;
 Thread t;
   Image offscreenImage;
   Graphics offscr;
@@ -55,7 +54,7 @@ Thread t;
     LockedDoor.drawDoors(offscr);
     WallBlock.drawWalls(offscr);
     offscr.setColor(Color.yellow);
-    offscr.drawString("v0.4.0",2,11);
+    offscr.drawString("v0.4.1",2,11);
     Enemy.drawEnemies(offscr);
     HelpScreen.draw(offscr);
     g.drawImage(offscreenImage,0,0,this);

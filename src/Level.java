@@ -8,8 +8,8 @@ public class Level {
   public Level() {}
   public static WallBlock[] wallArray = new WallBlock[120];
   static Coin[] coinArray = new Coin[10];
-  static LockedDoor[] doorArray = new LockedDoor[5];
-  static Key[] keyArray = new Key[5];
+  static LockedDoor[] doorArray = new LockedDoor[10];
+  static Key[] keyArray = new Key[10];
   static StringBuffer[] levelDat = new StringBuffer[15];
   public static void init(int lev) throws IOException {
     getLevelFile();
@@ -85,6 +85,9 @@ public class Level {
 		  else if(getChar(Integer.parseInt(levelDat[column].substring(sub1, sub2))) == 'D') {
 			  doorArray[LockedDoor.doorCount + 1] = new LockedDoor((row-1)*20,column*20,Color.green);
 		  }
+		  else if(getChar(Integer.parseInt(levelDat[column].substring(sub1, sub2))) == 'K') {
+			  keyArray[Key.keyCount + 1] = new Key((row-1)*20,column*20,Color.green);  
+		  }
 		  row++;
 		  sub1 = sub1 + 2;
 		  sub2 = sub2 + 2;
@@ -102,6 +105,9 @@ public class Level {
 	  }
 	  else if(a == 68) {
 		  return 'D';
+	  }
+	  else if(a == 75) {
+		return 'K';  
 	  }
 	  else {return '0';}
     }
