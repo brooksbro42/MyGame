@@ -1,4 +1,7 @@
+//Copyright 2011 Luke Nelson
+//This software is distributed under the terms of the GNU General Public License
 import java.applet.*;
+import java.io.IOException;
 public class KeyHandler {
   Applet parentApplet;
   public KeyHandler(Applet a) {
@@ -44,6 +47,15 @@ public class KeyHandler {
       GameThread.player2.moveDown();
     }
     else if(key == 100) {
+      if(GameThread.wait == true) {
+    	  try {
+  			Level.init(false);
+  			GameThread.wait = false;
+  		} catch (IOException e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+  		}
+      }
       GameThread.player2.moveRight();
     }
     else if(key == 32) {
@@ -63,5 +75,17 @@ public class KeyHandler {
     else if(key == 104) {
       HelpScreen.visible = !HelpScreen.visible;
     }
+    else if(key == 108) {
+    	if(GameThread.wait == true) {
+    		try {
+    			Level.init(true);
+    			GameThread.wait = false;
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    }
+    }
   }
- }
+ 

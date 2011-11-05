@@ -1,3 +1,5 @@
+//Copyright 2011 Luke Nelson
+//This software is distributed under the terms of the GNU General Public License
 import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
@@ -6,12 +8,15 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 public class Level {
   public Level() {}
+  static boolean load;
   public static WallBlock[] wallArray = new WallBlock[120];
   static Coin[] coinArray = new Coin[10];
+  static int returnVal;
   static LockedDoor[] doorArray = new LockedDoor[10];
   static Key[] keyArray = new Key[10];
   static StringBuffer[] levelDat = new StringBuffer[15];
-  public static void init(int lev) throws IOException {
+  public static void init(boolean l) throws IOException {
+	  load = l;
     getLevelFile();
   }
   static public void getLevelFile() throws IOException {
@@ -20,8 +25,8 @@ public class Level {
 	  }
 	  FileReader in = null;
 	  JFileChooser fc = new JFileChooser();
-	  int returnVal = fc.showOpenDialog(fc);
-	  if(returnVal == JFileChooser.APPROVE_OPTION) {
+	  if(load == true) {returnVal = fc.showOpenDialog(fc);}
+	  if(returnVal == JFileChooser.APPROVE_OPTION && load == true) {
 	     File f = fc.getSelectedFile();
 	     try {
 	    	in = new FileReader(f);

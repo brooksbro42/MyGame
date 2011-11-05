@@ -1,3 +1,5 @@
+//Copyright 2011 Luke Nelson
+//This software is distributed under the terms of the GNU General Public License
 import java.awt.*;
 public class HelpScreen {
   public static boolean visible = false;

@@ -1,3 +1,5 @@
+//Copyright 2011 Luke Nelson
+//This software is distributed under the terms of the GNU General Public License
 import java.awt.*;
 public class Bullet {
   public int startX, startY,x,y,direction,counter;
